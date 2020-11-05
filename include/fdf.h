@@ -39,8 +39,6 @@
 # define KEY_I		34
 # define KEY_O		31
 
-
-
 typedef struct	s_point
 {
 	int 		x;

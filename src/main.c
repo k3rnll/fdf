@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 15:15:54 by k3                #+#    #+#             */
-/*   Updated: 2020/11/05 09:36:55 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/05 10:45:26 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ t_point		**new_points(t_fdf *fdf)
 	int 	x;
 	int 	y;
 
-	points = malloc(8 *
-					(fdf->map->height * fdf->map->width));
+	points = malloc((8 * (fdf->map->height * fdf->map->width)));
 	y = 0;
 	while (y < fdf->map->height)
 	{

@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 07:57:12 by k3                #+#    #+#             */
-/*   Updated: 2020/11/05 09:58:27 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/05 11:48:38 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,9 @@ void		point_to_grid(t_point *p, t_fdf *fdf)
 
 t_point		*get_point(int x, int y, t_fdf *fdf)
 {
-	return (fdf->render->points[x + y * fdf->map->width]);
+	t_point *p;
+	p = fdf->render->points[x + y * fdf->map->width];
+	return (p);
 }
 
 void		new_point(t_fdf *fdf, int x, int y)

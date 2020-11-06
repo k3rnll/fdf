@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 12:14:28 by k3                #+#    #+#             */
-/*   Updated: 2020/11/06 14:57:50 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 18:45:36 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	update_img(t_fdf *fdf)
 	mlx_string_put(fdf->mlx, fdf->win, 0, 16, WHITE, "rt y: a-s");
 	mlx_string_put(fdf->mlx, fdf->win, 0, 32, WHITE, "rt z: z-x");
 	mlx_string_put(fdf->mlx, fdf->win, 0, 48, WHITE, "zoom: d-c");
-	mlx_string_put(fdf->mlx, fdf->win, 0, 64, WHITE, "proj: i-o");
+	mlx_string_put(fdf->mlx, fdf->win, 0, 64, WHITE,
+			fdf->render->iso ? "proj: i-o : iso" : "proj: i-o : parallel");
 	mlx_string_put(fdf->mlx, fdf->win, 0, 80, WHITE, "move: arrows");
 }
 
@@ -39,11 +40,16 @@ void	map_projection(t_fdf *fdf, int key)
 	if (key == KEY_I)
 	{
 		fdf->render->iso = 1;
+		fdf->render->ang_x = 0.0f;
+		fdf->render->ang_y = 0.0f;
+		fdf->render->ang_z = 0.0f;
+	}
+	else
+	{
+		fdf->render->iso = 0;
 		fdf->render->ang_x = 0.5f;
 		fdf->render->ang_y = 0.5f;
 		fdf->render->ang_z = 0.5f;
 	}
-	else
-		fdf->render->iso = 0;
 	update_img(fdf);
 }

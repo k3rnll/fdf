@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 15:15:54 by k3                #+#    #+#             */
-/*   Updated: 2020/11/06 17:36:03 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 18:39:07 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void		init_render(t_fdf *fdf)
 	render->pos_x = 0;
 	render->pos_y = 20;
 	render->iso = 1;
-	render->ang_x = 0.5f;
-	render->ang_y = 0.5f;
-	render->ang_z = 0.5f;
+	render->ang_x = 0.0f;
+	render->ang_y = 0.0f;
+	render->ang_z = 0.0f;
 	fdf->render = render;
 }
 

@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 14:59:59 by k3                #+#    #+#             */
-/*   Updated: 2020/11/06 15:12:59 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 15:55:55 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,12 @@ int				press_key(int key, t_fdf *fdf);
 t_image			*new_frame(t_fdf *fdf);
 void			clear_frame(t_fdf *fdf);
 void			map_to_points(t_fdf *fdf);
+int				str_to_coord(t_map *map, char *line);
+int				dist(int a, int b);
 int				smart_atoi(char *str);
+void			rotate_x(t_point *p, double ang);
+void			rotate_y(t_point *p, double ang);
+void			rotate_z(t_point *p, double ang);
 void			map_x(t_fdf *fdf, int key);
 void			map_y(t_fdf *fdf, int key);
 void			map_z(t_fdf *fdf, int key);

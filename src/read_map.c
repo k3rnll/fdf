@@ -6,12 +6,18 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:38 by k3                #+#    #+#             */
-/*   Updated: 2020/11/06 14:51:19 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 14:52:03 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "../include/fdf.h"
+
+t_map		*close_fd_err(int fd)
+{
+	close(fd);
+	return (NULL);
+}
 
 int			count_words(char *s, char c)
 {
@@ -27,16 +33,6 @@ int			count_words(char *s, char c)
 		i++;
 	}
 	return (words);
-}
-
-t_coord		*new_coord(char *str)
-{
-	t_coord	*new_coord;
-
-	if (!(new_coord = malloc(sizeof(t_coord))))
-		return (NULL);
-	new_coord->z = smart_atoi(str);
-	return (new_coord);
 }
 
 void		minmax_z(t_map *map)
@@ -60,52 +56,6 @@ void		minmax_z(t_map *map)
 		}
 		y++;
 	}
-}
-
-t_coord		**split_coords(t_map *map, t_coord **current)
-{
-	t_coord	**new;
-	int		old_len;
-
-	old_len = map->width * (map->height - 1);
-	if (!(new = malloc(8 * (map->width * (map->height)))))
-	{
-		free(map->coords);
-		free(current);
-		put_error("Error: malloc");
-	}
-	ft_memcpy(new, map->coords, 8 * old_len);
-	ft_memcpy(new + old_len, current, 8 * (map->width));
-	free(map->coords);
-	free(current);
-	return (new);
-}
-
-int			str_to_coord(t_map *map, char *line)
-{
-	char		**arr;
-	t_coord		**new_coords;
-	int			i;
-
-	if (!(arr = ft_strsplit(line, ' ')) ||
-		!(new_coords = malloc(8 * map->width)))
-		put_error("Error: malloc");
-	i = 0;
-	while (i < map->width)
-	{
-		new_coords[i] = new_coord(arr[i]);
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-	map->coords = map->height > 1 ? split_coords(map, new_coords) : new_coords;
-	return (1);
-}
-
-t_map		*close_fd_err(int fd)
-{
-	close(fd);
-	return (NULL);
 }
 
 t_map		*read_map(int fd)

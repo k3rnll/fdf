@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 15:59:57 by k3                #+#    #+#             */
-/*   Updated: 2020/11/06 15:06:44 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 15:06:59 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ void	put_error(char *msg)
 {
 	ft_putendl(msg);
 	exit(0);
+}
+
+int		dist(int a, int b)
+{
+	return (a < b ? b - a : a - b);
 }
 
 int		ft_numlen(long tmp)

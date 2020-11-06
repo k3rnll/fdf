@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 07:57:12 by k3                #+#    #+#             */
-/*   Updated: 2020/11/06 14:55:20 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 15:45:11 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,39 +22,6 @@ void		iso(t_point *p)
 	prev_y = p->y;
 	p->x = (int)((prev_x - prev_y) * cos(3.1415926535 / 6));
 	p->y = (int)(p->z + (prev_x + prev_y) * sin(3.1415926535 / 6));
-}
-
-void		rotate_x(t_point *p, double ang)
-{
-	int	y;
-	int	z;
-
-	y = p->y;
-	z = p->z;
-	p->y = (int)(y * cos(ang) + z * sin(ang));
-	p->z = (int)(-y * sin(ang) + z * cos(ang));
-}
-
-void		rotate_y(t_point *p, double ang)
-{
-	int	x;
-	int	z;
-
-	x = p->x;
-	z = p->z;
-	p->x = (int)(x * cos(ang) + z * sin(ang));
-	p->z = (int)(-x * sin(ang) + z * cos(ang));
-}
-
-void		rotate_z(t_point *p, double ang)
-{
-	int	x;
-	int	y;
-
-	x = p->x;
-	y = p->y;
-	p->x = (int)(x * cos(ang) - y * sin(ang));
-	p->y = (int)(x * sin(ang) + y * cos(ang));
 }
 
 void		point_to_grid(t_point *p, t_fdf *fdf)
@@ -74,14 +41,6 @@ void		point_to_grid(t_point *p, t_fdf *fdf)
 	}
 	p->x += fdf->render->pos_x;
 	p->y += fdf->render->pos_y;
-}
-
-t_point		*get_point(int x, int y, t_fdf *fdf)
-{
-	t_point	*p;
-
-	p = fdf->render->points[x + y * fdf->map->width];
-	return (p);
 }
 
 void		new_point(t_fdf *fdf, int x, int y)

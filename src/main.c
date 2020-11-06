@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 15:15:54 by k3                #+#    #+#             */
-/*   Updated: 2020/11/06 10:59:27 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 15:04:04 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 t_point		**new_points(t_fdf *fdf)
 {
-	t_point	**points;
-	int 	y;
+	t_point		**points;
+	int			y;
 
 	points = malloc(8 * fdf->map->height);
 	y = 0;
@@ -30,13 +30,13 @@ t_point		**new_points(t_fdf *fdf)
 	}
 	return (points);
 }
-void 	init_render(t_fdf *fdf)
+
+void		init_render(t_fdf *fdf)
 {
 	t_render	*render;
 
 	render = malloc(sizeof(t_render));
 	render->points = new_points(fdf);
-
 	render->scale = W_WIDTH / (fdf->map->width + fdf->map->width / 2);
 	render->pos_x = 0;
 	render->pos_y = 0;
@@ -45,25 +45,19 @@ void 	init_render(t_fdf *fdf)
 	render->ang_y = 0.5f;
 	render->ang_z = 0.5f;
 	render->z_height = render->scale;
-//	render->z_height = (W_HEIGHT / (fdf->map->height + fdf->map->height / 2) +1) /
-//			(abs(fdf->map->z_max) + abs(fdf->map->z_min) + 1);
 	fdf->render = render;
 }
 
-int		main(int ac, char **av)
+int			main(int ac, char **av)
 {
 	t_fdf	*fdf;
 	t_map	*map;
-	int 	fd;
+	int		fd;
 
-	char	*str;
-
-	fdf = 0;
-	str = *av;
 	map = NULL;
 	if (ac < 2)
 		put_error("Usage : ./fdf <filename> [ case_size z_size ]");
-	if(!ft_strstr(av[1], ".fdf"))
+	if (!ft_strstr(av[1], ".fdf"))
 		put_error("Error: no map file");
 	fd = open(av[1], O_RDONLY);
 	if (fd < 1 || !(map = read_map(fd)))

@@ -6,14 +6,14 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 12:14:28 by k3                #+#    #+#             */
-/*   Updated: 2020/11/06 12:21:26 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 14:57:46 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 #include "../mlx/mlx.h"
 
-void 	update_img(t_fdf *fdf)
+void	update_img(t_fdf *fdf)
 {
 	map_to_points(fdf);
 	draw_map(fdf);
@@ -26,14 +26,14 @@ void 	update_img(t_fdf *fdf)
 	mlx_string_put(fdf->mlx, fdf->win, 0, 80, WHITE, "move: arrows");
 }
 
-void 	map_zoom(t_fdf *fdf, int key)
+void	map_zoom(t_fdf *fdf, int key)
 {
 	fdf->render->scale = key == KEY_D ?
-							fdf->render->scale + 1 :
-							fdf->render->scale - 1;
+			fdf->render->scale + 1 :
+			fdf->render->scale - 1;
 	fdf->render->z_height = key == KEY_D ?
-						 fdf->render->z_height + 1 :
-						 fdf->render->z_height - 1;
+			fdf->render->z_height + 1 :
+			fdf->render->z_height - 1;
 	update_img(fdf);
 }
 

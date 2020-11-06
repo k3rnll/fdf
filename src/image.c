@@ -13,9 +13,8 @@
 #include "../libft/libft.h"
 #include "../include/fdf.h"
 #include "../mlx/mlx.h"
-#include <math.h>
 
-void 		put_pixel(t_fdf *fdf, int x, int y, unsigned color)
+void		put_pixel(t_fdf *fdf, int x, int y, unsigned color)
 {
 	size_t		pos;
 
@@ -33,7 +32,7 @@ void		clear_frame(t_fdf *fdf)
 	ft_bzero(fdf->frame->img_str, fdf->frame->size * W_HEIGHT);
 }
 
-t_image 	*new_frame(t_fdf *fdf)
+t_image		*new_frame(t_fdf *fdf)
 {
 	t_image	*frame;
 

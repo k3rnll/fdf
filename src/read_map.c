@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:38 by k3                #+#    #+#             */
-/*   Updated: 2020/11/04 16:27:27 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 14:51:19 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int			count_words(char *s, char c)
 	return (words);
 }
 
-t_coord 	*new_coord(char *str)
+t_coord		*new_coord(char *str)
 {
 	t_coord	*new_coord;
 
@@ -39,7 +39,7 @@ t_coord 	*new_coord(char *str)
 	return (new_coord);
 }
 
-void 		minmax_z(t_map *map)
+void		minmax_z(t_map *map)
 {
 	int	x;
 	int	y;
@@ -62,7 +62,7 @@ void 		minmax_z(t_map *map)
 	}
 }
 
-t_coord 	**split_coords(t_map *map, t_coord **current)
+t_coord		**split_coords(t_map *map, t_coord **current)
 {
 	t_coord	**new;
 	int		old_len;
@@ -83,15 +83,15 @@ t_coord 	**split_coords(t_map *map, t_coord **current)
 
 int			str_to_coord(t_map *map, char *line)
 {
-	char	**arr;
-	t_coord **new_coords;
-	int 	i;
+	char		**arr;
+	t_coord		**new_coords;
+	int			i;
 
 	if (!(arr = ft_strsplit(line, ' ')) ||
 		!(new_coords = malloc(8 * map->width)))
 		put_error("Error: malloc");
 	i = 0;
-	while (i < map->width )
+	while (i < map->width)
 	{
 		new_coords[i] = new_coord(arr[i]);
 		free(arr[i]);
@@ -102,10 +102,10 @@ int			str_to_coord(t_map *map, char *line)
 	return (1);
 }
 
-t_map 		*close_fd_err(int fd)
+t_map		*close_fd_err(int fd)
 {
 	close(fd);
-	return(NULL);
+	return (NULL);
 }
 
 t_map		*read_map(int fd)
@@ -114,7 +114,7 @@ t_map		*read_map(int fd)
 	char	*line;
 
 	if (!(map = malloc(sizeof(t_map))))
-		return(close_fd_err(fd));
+		return (close_fd_err(fd));
 	map->height = 0;
 	map->width = 0;
 	while (get_next_line(fd, &line))

@@ -13,13 +13,11 @@
 #include "../include/fdf.h"
 #include <stdlib.h>
 
-int 	press_key(int key, t_fdf *fdf)
+int		press_key(int key, t_fdf *fdf)
 {
 	(void)fdf;
 	if (key == KEY_ESC)
 		exit(0);
-//	if (key == KEY_D || key == KEY_C)
-//		change_map_height(fdf, key);
 	if (key == KEY_Q || key == KEY_W)
 		map_x(fdf, key);
 	if (key == KEY_A || key == KEY_S)

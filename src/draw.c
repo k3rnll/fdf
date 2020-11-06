@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 16:48:00 by k3                #+#    #+#             */
-/*   Updated: 2020/11/05 18:21:17 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 15:08:18 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ void	draw_map(t_fdf *fdf)
 		{
 			if (x < fdf->map->width - 1)
 				set_line(fdf->render->points[y] + x,
-						 fdf->render->points[y] + x + 1,
-						 fdf);
-			if (y < fdf->map->height - 1 )
+						fdf->render->points[y] + x + 1,
+							fdf);
+			if (y < fdf->map->height - 1)
 				set_line(fdf->render->points[y] + x,
-						 fdf->render->points[y + 1] + x,
-						 fdf);
+						fdf->render->points[y + 1] + x,
+							fdf);
 			x++;
 		}
 		y++;

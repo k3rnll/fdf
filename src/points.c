@@ -6,14 +6,14 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 07:57:12 by k3                #+#    #+#             */
-/*   Updated: 2020/11/06 10:58:14 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 14:55:20 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 #include <math.h>
 
-void	iso(t_point *p)
+void		iso(t_point *p)
 {
 	int	prev_x;
 	int	prev_y;
@@ -24,7 +24,7 @@ void	iso(t_point *p)
 	p->y = (int)(p->z + (prev_x + prev_y) * sin(3.1415926535 / 6));
 }
 
-void 		rotate_x(t_point *p, double ang)
+void		rotate_x(t_point *p, double ang)
 {
 	int	y;
 	int	z;
@@ -35,7 +35,7 @@ void 		rotate_x(t_point *p, double ang)
 	p->z = (int)(-y * sin(ang) + z * cos(ang));
 }
 
-void 		rotate_y(t_point *p, double ang)
+void		rotate_y(t_point *p, double ang)
 {
 	int	x;
 	int	z;
@@ -46,7 +46,7 @@ void 		rotate_y(t_point *p, double ang)
 	p->z = (int)(-x * sin(ang) + z * cos(ang));
 }
 
-void 		rotate_z(t_point *p, double ang)
+void		rotate_z(t_point *p, double ang)
 {
 	int	x;
 	int	y;
@@ -78,7 +78,8 @@ void		point_to_grid(t_point *p, t_fdf *fdf)
 
 t_point		*get_point(int x, int y, t_fdf *fdf)
 {
-	t_point *p;
+	t_point	*p;
+
 	p = fdf->render->points[x + y * fdf->map->width];
 	return (p);
 }
@@ -95,15 +96,11 @@ void		new_point(t_fdf *fdf, int x, int y)
 	point_to_grid(p, fdf);
 }
 
-void	map_to_points(t_fdf *fdf)
+void		map_to_points(t_fdf *fdf)
 {
-//	t_point	**points;
-	int 	x;
-	int		y;
+	int	x;
+	int	y;
 
-//	points = malloc(sizeof(t_point**) *
-//					(fdf->map->height * fdf->map->width));
-//	*(fdf->render->points) ? free_points(fdf) : 0;
 	y = 0;
 	while (y < fdf->map->height)
 	{
@@ -115,6 +112,4 @@ void	map_to_points(t_fdf *fdf)
 		}
 		y++;
 	}
-//	fdf->render->points ? free_points(fdf) : 0;
-//	fdf->render->points = points;
 }

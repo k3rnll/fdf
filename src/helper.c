@@ -65,14 +65,14 @@ int		smart_atoi(char *str)
 
 	arg = ft_strsplit(str, ',');
 	if (!(len = ft_isnumber(*arg)) && len > 11)
-		put_error("Error: MAX_INT");
+		put_error("Error: Wrong integer in the map");
 	tmp = ft_atoi(*arg);
 	if (len != ft_numlen(tmp) + (*str == '-' || *str == '+'))
-		put_error("Error: MAX_INT");
+		put_error("Error: Wrong integer in the map");
 	if (*str != '-' && tmp < 0)
-		put_error("Error: MAX_INT");
+		put_error("Error: Wrong integer in the map");
 	if (*str == '-' && tmp > 0)
-		put_error("Error: MAX_INT");
+		put_error("Error: Wrong integer in the map");
 	i = 0;
 	while (arg[i])
 	{

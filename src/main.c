@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 15:15:54 by k3                #+#    #+#             */
-/*   Updated: 2020/11/06 15:04:04 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 17:36:03 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,11 @@ void		init_render(t_fdf *fdf)
 	render->points = new_points(fdf);
 	render->scale = W_WIDTH / (fdf->map->width + fdf->map->width / 2);
 	render->pos_x = 0;
-	render->pos_y = 0;
+	render->pos_y = 20;
 	render->iso = 1;
 	render->ang_x = 0.5f;
 	render->ang_y = 0.5f;
 	render->ang_z = 0.5f;
-	render->z_height = render->scale;
 	fdf->render = render;
 }
 
@@ -55,8 +54,8 @@ int			main(int ac, char **av)
 	int		fd;
 
 	map = NULL;
-	if (ac < 2)
-		put_error("Usage : ./fdf <filename> [ case_size z_size ]");
+	if (ac != 2)
+		put_error("Usage : ./fdf <map>");
 	if (!ft_strstr(av[1], ".fdf"))
 		put_error("Error: no map file");
 	fd = open(av[1], O_RDONLY);

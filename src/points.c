@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 07:57:12 by k3                #+#    #+#             */
-/*   Updated: 2020/11/06 15:45:11 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 17:38:12 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void		point_to_grid(t_point *p, t_fdf *fdf)
 {
 	p->x *= fdf->render->scale;
 	p->y *= fdf->render->scale;
-	p->z = p->z / 2 * -(fdf->render->z_height);
+	p->z *= -(fdf->render->scale);
 	p->x -= fdf->map->width * fdf->render->scale / 2;
 	p->y -= fdf->map->height * fdf->render->scale / 2;
 	if (fdf->render->iso)

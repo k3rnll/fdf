@@ -32,7 +32,7 @@ HDR = $(addprefix $(HDR_DIR), $(HDR_LIST))
 
 SRC_DIR = ./src/
 SRC_LIST = 	main.c read_map.c init_fdf.c keyboard.c image.c mods.c rotate_frame.c\
-	points.c draw.c helper.c moving.c
+	points.c draw.c helper.c moving.c rotate_point.c coords.c
 SRC = $(addprefix $(SRC_DIR), $(SRC_LIST))
 
 OBJ_DIR = ./obj/

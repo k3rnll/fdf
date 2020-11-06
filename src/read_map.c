@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:41:38 by k3                #+#    #+#             */
-/*   Updated: 2020/11/06 14:52:03 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 17:53:54 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,29 +35,6 @@ int			count_words(char *s, char c)
 	return (words);
 }
 
-void		minmax_z(t_map *map)
-{
-	int	x;
-	int	y;
-
-	map->z_max = 0;
-	map->z_min = 24222222;
-	y = 0;
-	while (y < map->height)
-	{
-		x = 0;
-		while (x < map->width)
-		{
-			if (map->coords[y * map->width + x]->z > map->z_max)
-				map->z_max = map->coords[y * map->width + x]->z;
-			if (map->coords[y * map->width + x]->z < map->z_min)
-				map->z_min = map->coords[y * map->width + x]->z;
-			x++;
-		}
-		y++;
-	}
-}
-
 t_map		*read_map(int fd)
 {
 	t_map	*map;
@@ -80,7 +57,6 @@ t_map		*read_map(int fd)
 		str_to_coord(map, line);
 		free(line);
 	}
-	minmax_z(map);
 	close(fd);
-	return (map);
+	return (map->width && map->height ? map : NULL);
 }

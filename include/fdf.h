@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 14:59:59 by k3                #+#    #+#             */
-/*   Updated: 2020/11/06 15:55:55 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 17:57:38 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ typedef struct	s_render
 	float		ang_x;
 	float		ang_y;
 	float		ang_z;
-	int			z_height;
 	int			iso;
 	t_point		**points;
 }				t_render;
@@ -73,8 +72,6 @@ typedef struct	s_map
 {
 	int			width;
 	int			height;
-	int			z_min;
-	int			z_max;
 	t_coord		**coords;
 }				t_map;
 
@@ -82,7 +79,6 @@ typedef struct	s_fdf
 {
 	void		*mlx;
 	void		*win;
-	void		*img;
 	t_map		*map;
 	t_image		*frame;
 	t_render	*render;

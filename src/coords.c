@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 15:58:02 by k3                #+#    #+#             */
-/*   Updated: 2020/11/06 15:58:02 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 17:52:33 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@
 t_coord		*new_coord(char *str)
 {
 	t_coord	*new_coord;
+	int		tmp;
 
 	if (!(new_coord = malloc(sizeof(t_coord))))
 		return (NULL);
-	new_coord->z = smart_atoi(str);
+	tmp = smart_atoi(str);
+	tmp = tmp < -1000 ? -1000 : tmp;
+	tmp = tmp > 1000 ? 1000 : tmp;
+	new_coord->z = tmp;
 	return (new_coord);
 }
 

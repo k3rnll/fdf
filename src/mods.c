@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 12:14:28 by k3                #+#    #+#             */
-/*   Updated: 2020/11/06 14:57:46 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 14:57:50 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ void	map_zoom(t_fdf *fdf, int key)
 	fdf->render->scale = key == KEY_D ?
 			fdf->render->scale + 1 :
 			fdf->render->scale - 1;
-	fdf->render->z_height = key == KEY_D ?
-			fdf->render->z_height + 1 :
-			fdf->render->z_height - 1;
 	update_img(fdf);
 }
 

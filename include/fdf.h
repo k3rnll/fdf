@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 14:59:59 by k3                #+#    #+#             */
-/*   Updated: 2020/11/05 09:18:04 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 10:19:10 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # define W_WIDTH	1024
 # define W_HEIGHT	600
+# define WHITE		0xFFFFFFu
 # define RED		0xFF0000u
 # define GREEN		0xFF00u
 # define BLUE		0xFFu
@@ -30,8 +31,8 @@
 # define KEY_S		1
 # define KEY_Z		6
 # define KEY_X		7
-# define KEY_F		3
-# define KEY_V		9
+# define KEY_PLUS	69
+# define KEY_MINUS	78
 # define KEY_UP		126
 # define KEY_DOWN	125
 # define KEY_LEFT	123

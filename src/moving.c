@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 17:25:53 by k3                #+#    #+#             */
-/*   Updated: 2020/11/04 17:45:03 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 09:39:37 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ void 	map_move(t_fdf *fdf, int key)
 	x = fdf->render->pos_x;
 	y = fdf->render->pos_y;
 	if (key == KEY_UP)
-		y =  y - fdf->render->scale;
+		y =  y - 20;
 	else if (key == KEY_DOWN)
-		y = y + fdf->render->scale;
+		y = y + 20;
 	else if (key == KEY_LEFT)
-		x = x - fdf->render->scale;
+		x = x - 20;
 	else
-		x = x + fdf->render->scale;
+		x = x + 20;
 	fdf->render->pos_x = x;
 	fdf->render->pos_y = y;
 
-	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->frame->img_ptr, x, y);
+	update_img(fdf);
 }

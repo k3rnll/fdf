@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 23:43:06 by k3                #+#    #+#             */
-/*   Updated: 2020/11/04 19:54:02 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 09:35:58 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ void 		put_pixel(t_fdf *fdf, int x, int y, unsigned color)
 {
 	size_t		pos;
 
-	x = W_WIDTH / 2 + x;
-	y = W_HEIGHT / 2 + y;
+	color = abs(x) >= W_WIDTH / 2 || abs(y) >= W_HEIGHT / 2 ? 0 : color;
+	x = abs(x) >= W_WIDTH / 2 ? 0 : W_WIDTH / 2 + x;
+	y = abs(y) >= W_HEIGHT / 2 ? 0 : W_HEIGHT / 2 + y;
 	pos = abs((y) * fdf->frame->size) + ((x) * 4);
 	fdf->frame->img_str[pos + 2] = (char)((color & 0xFF0000u) >> 16u);
 	fdf->frame->img_str[pos + 1] = (char)((color & 0xFF00u) >> 8u);

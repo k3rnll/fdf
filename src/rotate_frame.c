@@ -14,24 +14,33 @@
 
 void	map_x(t_fdf *fdf, int key)
 {
-	fdf->render->ang_x = key == KEY_Q ?
-						 fdf->render->ang_x - 0.1f :
-						 fdf->render->ang_x + 0.1f;
-	update_img(fdf);
+	if (!fdf->render->iso)
+	{
+		fdf->render->ang_x = key == KEY_Q ?
+							 fdf->render->ang_x - 0.1f :
+							 fdf->render->ang_x + 0.1f;
+		update_img(fdf);
+	}
 }
 
 void	map_y(t_fdf *fdf, int key)
 {
-	fdf->render->ang_y = key == KEY_A ?
-						 fdf->render->ang_y + 0.1f :
-						 fdf->render->ang_y - 0.1f;
-	update_img(fdf);
+	if (!fdf->render->iso)
+	{
+		fdf->render->ang_y = key == KEY_A ?
+							 fdf->render->ang_y + 0.1f :
+							 fdf->render->ang_y - 0.1f;
+		update_img(fdf);
+	}
 }
 
 void	map_z(t_fdf *fdf, int key)
 {
-	fdf->render->ang_z = key == KEY_Z ?
-						 fdf->render->ang_z - 0.1f :
-						 fdf->render->ang_z + 0.1f;
-	update_img(fdf);
+	if (!fdf->render->iso)
+	{
+		fdf->render->ang_z = key == KEY_Z ?
+							 fdf->render->ang_z - 0.1f :
+							 fdf->render->ang_z + 0.1f;
+		update_img(fdf);
+	}
 }

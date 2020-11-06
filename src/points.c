@@ -6,7 +6,7 @@
 /*   By: tmarkita <tmarkita@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 07:57:12 by k3                #+#    #+#             */
-/*   Updated: 2020/11/05 11:48:38 by k3               ###   ########.fr       */
+/*   Updated: 2020/11/06 10:58:14 by k3               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,9 @@ void		point_to_grid(t_point *p, t_fdf *fdf)
 {
 	p->x *= fdf->render->scale;
 	p->y *= fdf->render->scale;
+	p->z = p->z / 2 * -(fdf->render->z_height);
 	p->x -= fdf->map->width * fdf->render->scale / 2;
 	p->y -= fdf->map->height * fdf->render->scale / 2;
-	p->z *= -(fdf->render->z_height / 2);
-//	p->z -= fdf->map->width * fdf->render->scale / 2;
 	if (fdf->render->iso)
 		iso(p);
 	else
@@ -73,6 +72,8 @@ void		point_to_grid(t_point *p, t_fdf *fdf)
 		rotate_y(p, fdf->render->ang_y);
 		rotate_z(p, fdf->render->ang_z);
 	}
+	p->x += fdf->render->pos_x;
+	p->y += fdf->render->pos_y;
 }
 
 t_point		*get_point(int x, int y, t_fdf *fdf)
@@ -86,11 +87,11 @@ void		new_point(t_fdf *fdf, int x, int y)
 {
 	t_point	*p;
 
-	p = fdf->render->points[x + y * fdf->map->width];
+	p = fdf->render->points[y] + x;
 	p->x = x;
 	p->y = y;
 	p->z = fdf->map->coords[x + y * fdf->map->width]->z;
-	p->color = 0xFF;
+	p->color = WHITE;
 	point_to_grid(p, fdf);
 }
 
